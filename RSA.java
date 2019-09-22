@@ -10,14 +10,14 @@ class RSA{
 		System.out.println("Enter the value of q");
 		q=in.nextInt();
 		int n=p*q;
-		//System.out.println("n is"+n);
+		System.out.println("n is "+n);
 		int fn=(p-1)*(q-1);
-		//System.out.println("fn is"+fn);
+		System.out.println("phi is "+fn);
 		do{
-			System.out.println("Enter the value of e< & relatively prime to"+fn);
+			System.out.println("Enter the value of e which is less than and relatively prime to "+fn);
 			 e=in.nextInt();
 		}while(gcd(e,fn)!=1);
-		System.out.println("The value of e is"+e);
+		System.out.println("The value of e is "+e);
 		System.out.println("The public key is {"+e+","+n+"} ");
 		int d;
 		int k=1;
@@ -27,12 +27,13 @@ class RSA{
 		}
 		//System.out.println(k);
 		d=((fn*k)+1)/e;
-		System.out.println("d is"+d);
+		//System.out.println("d is "+d);
+		System.out.println("The private key is {"+d+","+n+"} ");
 		int msglen=message.length();
 		int[] msg=new int[msglen];
 		int a;
 		String dec="";
-		System.out.println("Encrypting---");
+		System.out.println("---Encrypting---");
 		for(int i=0;i<msglen;i++)
 		{
 			a=(int)(message.charAt(i));
